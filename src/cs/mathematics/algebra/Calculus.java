@@ -1,7 +1,7 @@
 /**
  * This file is part of CS. 
  * 
- * V:RD201105T203149
+ * V:RD201228T125525
  */
 
 
@@ -103,11 +103,27 @@ public class Calculus {
 	//
 	//
 	
+	public double Fx_C(double x, double C) {
+		double FxC = innercal2(this.D5, x, 5) + innercal2(this.D4, x, 4) + innercal2(D3, x, 3) + innercal2(D2, x, 2) + innercal2(D1, x, 1) + innercal2(constant, x, 0) + C;
+		return FxC;
+		
+		//..
+	}
+		
 	public double def_integral(double x1, double x2) {
 		double DI = Fx(x2) - Fx(x1);
 		return DI;
 		
 		//calculation of definite integral
+	}
+	
+	public double def_integral_2(double x1, double xm, double x2, double[] gx) {
+		Calculus ICL = new Calculus(gx[0], gx[1], gx[2], gx[3], gx[4], gx[5]);
+		
+		double DI2 = def_integral(x1, xm) + ICL.def_integral(xm, x2);
+		return DI2;
+		
+		//..
 	}
 	
 	
